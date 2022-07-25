@@ -46,7 +46,7 @@ def execution():
     plt.yticks([3,4,5],size=15)
     plt.ylim([3,6])
     plt.legend(('reviews.rating','textSentimentRating','averageRating'))
-    st.image(plt.show())
+    st.pyplot(fig=plt)
     #%matplotlib inline
     fig=plt.figure(figsize=(15,5))
     for idx in df_bot.index:
@@ -62,7 +62,7 @@ def execution():
     plt.yticks(size=12)
     plt.ylim([0,6])
     plt.legend(('reviews.rating','textSentimentRating','averageRating'))
-    st.image(plt.show())
+    st.pyplot(fig=plt)
     #return [img1,img2]
 def uiExample():
     st.set_page_config(layout = "wide")
