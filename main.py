@@ -66,7 +66,7 @@ def execution():
 def textSentiment():
     text = st.text_input("Please enter thex here",value="This is a sample Text")
     analyzer = SentimentIntensityAnalyzer()
-    value = analyzer.polarity_scores(sentence)['compound']
+    value = analyzer.polarity_scores(text)['compound']
     # Converting Rating from -1 to 1 into 1 to 5
     new_value = ((((value) - (-1)) * (5 - 1)) / (1 - (-1))) + 1
     if new_value < 2.5:
