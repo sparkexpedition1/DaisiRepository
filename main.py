@@ -63,14 +63,29 @@ def execution():
     plt.ylim([0,6])
     plt.legend(('reviews.rating','textSentimentRating','averageRating'))
     st.pyplot(fig=plt)
-    #return [img1,img2]
+def textSentiment():
+    text = st.text_input("Please enter thex here",value="This is a sample Text")
+    analyzer = SentimentIntensityAnalyzer()
+    value = analyzer.polarity_scores(sentence)['compound']
+    # Converting Rating from -1 to 1 into 1 to 5
+    new_value = ((((value) - (-1)) * (5 - 1)) / (1 - (-1))) + 1
+    if new_value < 2.5:
+        st.text("Negative")
+    elif new_value > 3.5:
+        st.text("Positive")
+    else:
+        st.text("Neutral")
 def uiExample():
     st.set_page_config(layout = "wide")
     algorithm = st.sidebar.text_input("Algoritm", "Algo")
-    st.title("The Algorithm being implemented is " + str(algorithm)+"\nfor rating write Sentiment Rating")
-    if algorithm == "Sentiment Rating":
+    st.write("For ratings type Product Rating")
+    st.write("For Text Sentiment type Text Sentiment")
+    if algorithm == "Product Rating":
         execution()
-        st.markdown("Complete")
+    elif algorithm == 'Text Sentiment':
+        textSentiment()
+    else:
+        st.write("No such Algorithm defined in this daisi")
         
 if __name__ == "__main__":
     uiExample()
