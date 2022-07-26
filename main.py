@@ -77,9 +77,11 @@ def textSentiment():
         st.text("Neutral")
 def uiExample():
     st.set_page_config(layout = "wide")
-    algorithm = st.sidebar.text_input("Algoritm", "Algo")
+    user_name = st.sidebar.text_input("Name", "Jhon")
+    st.text("Hi" + user_name)
     st.text("For ratings type Product Rating")
     st.text("For Text Sentiment type Text Sentiment")
+    algorithm = st.text_input("Please enter the Algorithm",value="")
     if algorithm == "Product Rating":
         execution()
     elif algorithm == 'Text Sentiment':
