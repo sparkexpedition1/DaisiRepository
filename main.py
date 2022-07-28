@@ -82,7 +82,7 @@ def uiExample():
     st.text("Hi " + user_name)
     nsei =yf.Ticker('NSEI')
     st.text(nsei.info)
-    df_list = pd.read_html('https://markets.businessinsider.com/indices')
+    df_list = pd.read_html('https://finance.yahoo.com/world-indices/')
     majorStockIdx = df_list[0]
     st.dataframe(data=majorStockIdx)
     st.text("For ratings type Product Rating")
