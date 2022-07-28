@@ -1,6 +1,7 @@
 import streamlit as st
 import pydaisi as pyd
 import pandas as pd
+import yfinance as yf
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 import matplotlib.pyplot as plt
 # def hello(name="Daisi"):
@@ -79,6 +80,9 @@ def uiExample():
     st.set_page_config(layout = "wide")
     user_name = st.sidebar.text_input("Name", "Jhon")
     st.text("Hi " + user_name)
+    df_list = pd.read_html('https://finance.yahoo.com/world-indices/')
+    majorStockIdx = df_list[0]
+    st.dataframe(data=majorStockIdx)
     st.text("For ratings type Product Rating")
     st.text("For Text Sentiment type Text Sentiment")
     algorithm = st.text_input("Please enter the Algorithm",value="")
