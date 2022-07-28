@@ -80,6 +80,8 @@ def uiExample():
     st.set_page_config(layout = "wide")
     user_name = st.sidebar.text_input("Name", "Jhon")
     st.text("Hi " + user_name)
+    nsei =yf.Ticker('NSEI')
+    st.text(nsei.info)
     df_list = pd.read_html('https://markets.businessinsider.com/indices')
     majorStockIdx = df_list[0]
     st.dataframe(data=majorStockIdx)
