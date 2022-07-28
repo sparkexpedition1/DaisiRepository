@@ -3,3 +3,4 @@ streamlit
 pydaisi
 pandas
 matplotlib
+yfinance
