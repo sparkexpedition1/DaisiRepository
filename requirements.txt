@@ -1,6 +1,7 @@
 vaderSentiment
+yfinance
 streamlit
 pydaisi
 pandas
 matplotlib
-yfinance
+
