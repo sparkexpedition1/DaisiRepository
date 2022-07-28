@@ -80,7 +80,7 @@ def uiExample():
     st.set_page_config(layout = "wide")
     user_name = st.sidebar.text_input("Name", "Jhon")
     st.text("Hi " + user_name)
-    df_list = pd.read_html('https://finance.yahoo.com/quote/%5ENSEI?p=^NSEI&.tsrc=fin-srch')
+    df_list = pd.read_html('https://in.investing.com/indices/major-indices')
     majorStockIdx = df_list[0]
     st.dataframe(data=majorStockIdx)
     st.text("For ratings type Product Rating")
