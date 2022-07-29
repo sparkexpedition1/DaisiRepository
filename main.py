@@ -83,10 +83,28 @@ def uiExample():
     nifty = yf.Ticker("^NSEI")
     nifty_cur = nifty.info['regularMarketPrice']
     nifty_change = (nifty_cur - nifty.info['previousClose'])/nifty.info['previousClose']*100
-    st.markdown('<p style="background-color:green;">Nifty 50 -  ' + str(nifty_cur) + ' ' + str(nifty_change) + '%</p>')
-    st.text("Sensex -  " + str(yf.Ticker("^BSESN").info['regularMarketPrice']))
-    st.text("S&P 500 -  " + str(yf.Ticker("^GSPC").info['regularMarketPrice']))
-    st.text("DOW Jones Industrial Average -  " + str(yf.Ticker("^DJI").info['regularMarketPrice']))
+    st.markdown('Nifty 50 -  ' + str(nifty_cur) + ' ' + str(nifty_change) + '%')
+    
+    sensex = yf.Ticker("^BSESN")
+    sensex_cur = sensex.info['regularMarketPrice']
+    sensex_change = (sensex_cur - sensex.info['previousClose'])/sensex.info['previousClose']*100
+    st.markdown('Sensex 50 -  ' + str(sensex_cur) + ' ' + str(sensex_change) + '%')
+    
+    snp = yf.Ticker("^GSPC")
+    snp_cur = snp.info['regularMarketPrice']
+    snp_change = (snp_cur - snp.info['previousClose'])/snp.info['previousClose']*100
+    st.markdown('S&P -  ' + str(snp_cur) + ' ' + str(snp_change) + '%')
+    
+    russel = yf.Ticker("^RUT")
+    russel_cur = russel.info['regularMarketPrice']
+    russel_change = (russel_cur - russel.info['previousClose'])/russel.info['previousClose']*100
+    st.markdown('Russel -  ' + str(russel_cur) + ' ' + str(russel_change) + '%')
+    
+    dj = yf.Ticker("^DJI")
+    dj_cur = dj.info['regularMarketPrice']
+    dj_change = (dj_cur - dj.info['previousClose'])/dj.info['previousClose']*100
+    st.markdown('DOW Jones -  ' + str(dj_cur) + ' ' + str(dj_change) + '%')
+    
     st.text("Russel 2000 -  " + str(yf.Ticker("^RUT").info['regularMarketPrice']))
 #     nsei =yf.Ticker('NSEI')
 #     st.text(nsei.info)
