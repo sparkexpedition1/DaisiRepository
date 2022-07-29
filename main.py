@@ -83,7 +83,7 @@ def uiExample():
     nifty = yf.Ticker("^NSEI")
     nifty_cur = nifty.info['regularMarketPrice']
     nifty_change = (nifty_cur - nifty.info['previousClose'])/nifty.info['previousClose']*100
-    st.markdown('<p style="color:green;">Nifty 50 -  ' + str(nifty_cur) + ' ' + str(nifty_change) + '%'</p>)
+    st.markdown('<p style="background-color:green;">Nifty 50 -  ' + str(nifty_cur) + ' ' + str(nifty_change) + '%'</p>)
     st.text("Sensex -  " + str(yf.Ticker("^BSESN").info['regularMarketPrice']))
     st.text("S&P 500 -  " + str(yf.Ticker("^GSPC").info['regularMarketPrice']))
     st.text("DOW Jones Industrial Average -  " + str(yf.Ticker("^DJI").info['regularMarketPrice']))
