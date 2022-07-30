@@ -105,11 +105,14 @@ def uiExample():
     dj_change = (dj_cur - dj.info['previousClose'])/dj.info['previousClose']*100
     st.markdown('DOW Jones :  ' + str(dj_cur) + ' Change: ' + str(dj_change) + '%')
     
-    fig = plt.figure()
-    l1 = [nifty_change, sensex_change, snp_change, russel_change, dj_change]
-    l2 = ['Nifty', 'Sensex', 'S&P',"Russel",'DOW Jones']
-    plt.plot(l2,l1)
-    plt.show()
+    #fig = plt.figure()
+    l1 = [["Nifty",nifty_change],["Sensex", sensex_change], ["SNP",snp_change], ["Russel",russel_change], ["DOW Jones",dj_change]]
+    #l2 = ['Nifty', 'Sensex', 'S&P',"Russel",'DOW Jones']
+    df_chart = pd.DataFrame(l1,columns=["Index","Change"])
+    st.dataframe(df_chart)
+                                                                                                           
+#     plt.plot(l2,l1)
+#     plt.show()
 #     nsei =yf.Ticker('NSEI')
 #     st.text(nsei.info)
 #     df_list = pd.read_html('https://finance.yahoo.com/world-indices/')
