@@ -106,7 +106,7 @@ def uiExample():
     st.markdown('DOW Jones :  ' + str(dj_cur) + ' Change: ' + str(dj_change) + '%')
     
     #fig = plt.figure()
-    l1 = [["Nifty",nifty_change],["Sensex", sensex_change], ["SNP",snp_change], ["Russel",russel_change], ["DOW Jones",dj_change]]
+    l1 = [["Nifty",nifty_change],["Sensex", sensex_change], ["SNP",snp_change], ["Russel",russel_change], ["DOW Jones",dj_change],["sample",-0.25]]
     lp =[]
     ln = []
     for lst in l1:
@@ -116,9 +116,10 @@ def uiExample():
             ln.append(lst)
     df_lp  =  pd.DataFrame(lp,columns=["Index","Change"])
     df_ln  =  pd.DataFrame(ln,columns=["Index","Change"])
-    
-    plt.plot(df_lp['Index'],df_lp['Change'],color="green")
-    plt.plot(df_ln['Index'],df_ln['Change'],color="red")
+    df_lp.plot(kind="bar",color="green")
+    df_ln.plot(kind="bar",color="red")
+#     plt.plot(df_lp['Index'],df_lp['Change'],color="green")
+#     plt.plot(df_ln['Index'],df_ln['Change'],color="red")
     st.pyplot(fig=plt)
 #     plt.show()
 #     nsei =yf.Ticker('NSEI')
