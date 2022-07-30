@@ -120,8 +120,8 @@ def uiExample():
     plt.bar(df_lp['Index'],df_lp['Change'],color="green",width = 0.4)
     plt.bar(df_ln['Index'],df_ln['Change'],color="red",width = 0.4)
     y  = list(df_lp['Change']) + list(df_ln['Change'])
-    for i, v in enumerate(y):
-        plt.text(xlocs[i] - 0.25, v + 0.01, str(v))
+    for i in range(0, len(y)):
+        plt.text(i,y[i],y[i])
     #plt.tick_params(top='off', bottom='off', left='off', right='off')
 #     plt.plot(df_lp['Index'],df_lp['Change'],color="green")
 #     plt.plot(df_ln['Index'],df_ln['Change'],color="red")
