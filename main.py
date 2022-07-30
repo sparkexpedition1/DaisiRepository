@@ -105,7 +105,7 @@ def uiExample():
     dj_change = (dj_cur - dj.info['previousClose'])/dj.info['previousClose']*100
     st.markdown('DOW Jones :  ' + str(dj_cur) + ' Change: ' + str(dj_change) + '%')
     
-    fig = plt.figure(frameon=False)
+    fig = plt.figure()
     l1 = [["Nifty",nifty_change],["Sensex", sensex_change], ["SNP",snp_change], ["Russel",russel_change], ["DOW Jones",dj_change],["sample",-0.25]]
     lp =[]
     ln = []
@@ -113,13 +113,13 @@ def uiExample():
         if lst[1] >= 0 :
             lp.append(lst)
         else:
-            ln.append(lst)
+            ln.append([lst[0],lst[1]*(-1)])
     df_lp  =  pd.DataFrame(lp,columns=["Index","Change"])
     df_ln  =  pd.DataFrame(ln,columns=["Index","Change"])
     fig = plt.figure(figsize = (10, 5))
     plt.bar(df_lp['Index'],df_lp['Change'],color="green",width = 0.4)
     plt.bar(df_ln['Index'],df_ln['Change'],color="red",width = 0.4)
-    plt.tick_params(top='off', bottom='off', left='off', right='off')
+    #plt.tick_params(top='off', bottom='off', left='off', right='off')
 #     plt.plot(df_lp['Index'],df_lp['Change'],color="green")
 #     plt.plot(df_ln['Index'],df_ln['Change'],color="red")
     st.pyplot(fig=plt)
