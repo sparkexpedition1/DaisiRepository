@@ -105,7 +105,7 @@ def uiExample():
     dj_change = (dj_cur - dj.info['previousClose'])/dj.info['previousClose']*100
     st.markdown('DOW Jones :  ' + str(dj_cur) + ' Change: ' + str(dj_change) + '%')
     
-    #fig = plt.figure()
+    fig = plt.figure(frameon=False)
     l1 = [["Nifty",nifty_change],["Sensex", sensex_change], ["SNP",snp_change], ["Russel",russel_change], ["DOW Jones",dj_change],["sample",-0.25]]
     lp =[]
     ln = []
