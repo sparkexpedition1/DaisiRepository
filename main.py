@@ -109,7 +109,7 @@ def uiExample():
     l1 = [["Nifty",nifty_change],["Sensex", sensex_change], ["SNP",snp_change], ["Russel",russel_change], ["DOW Jones",dj_change]]
     #l2 = ['Nifty', 'Sensex', 'S&P',"Russel",'DOW Jones']
     df_chart = pd.DataFrame(l1,columns=["Index","Change"])
-    st.dataframe(df_chart)
+    st.dataframe(data=df_chart)
                                                                                                            
 #     plt.plot(l2,l1)
 #     plt.show()
