@@ -123,9 +123,9 @@ def uiExample():
     plt.bar(df_ln['Index'],df_ln['Change'],color="red",width = 0.4)
     y =[]
     for i in ln:
-        y.append(str(ln[i][2]) + ", " + str(ln[i][1]))
+        y.append(str(i[2]) + ", " + str(i[1]))
     for i in lp:
-        y.append(str(lp[i][2]) + ", " + str(lp[i][1]))
+        y.append(str(i[2]) + ", " + str(i[1]))
 #     nsei =yf.Ticker('NSEI')
 #     st.text(nsei.info)
 #     df_list = pd.read_html('https://finance.yahoo.com/world-indices/')
