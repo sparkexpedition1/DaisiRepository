@@ -121,13 +121,14 @@ def uiExample():
     fig = plt.figure(figsize = (10, 5))
     plt.bar(df_lp['Index'],df_lp['Change'],color="green",width = 0.4)
     plt.bar(df_ln['Index'],df_ln['Change'],color="red",width = 0.4)
+    z = list(df_lp['Change']) + list(df_ln['Change'])
     y =[]
     for i in ln:
         y.append(str(i[2]) + ", " + str(i[1]))
     for i in lp:
         y.append(str(i[2]) + ", " + str(i[1]))
     for i in range(0, len(y)):
-        plt.text(i-0.04,y[i]+0.025,y[i])
+        plt.text(i-0.04,z[i]+0.025,y[i])
     #plt.tick_params(top='off', bottom='off', left='off', right='off')
 #     plt.plot(df_lp['Index'],df_lp['Change'],color="green")
 #     plt.plot(df_ln['Index'],df_ln['Change'],color="red")
