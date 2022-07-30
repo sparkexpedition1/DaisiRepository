@@ -123,9 +123,9 @@ def uiExample():
     plt.bar(df_ln['Index'],df_ln['Change'],color="red",width = 0.4)
     z = list(df_lp['Change']) + list(df_ln['Change'])
     y =[]
-    for i in ln:
-        y.append(str(i[2]) + ", " + str(i[1]))
     for i in lp:
+        y.append(str(i[2]) + ", " + str(i[1]))
+    for i in ln:
         y.append(str(i[2]) + ", " + str(i[1]))
     for i in range(0, len(y)):
         plt.text(i-0.04,z[i]+0.025,y[i])
