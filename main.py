@@ -117,8 +117,8 @@ def uiExample():
     df_lp  =  pd.DataFrame(lp,columns=["Index","Change"])
     df_ln  =  pd.DataFrame(ln,columns=["Index","Change"])
     
-    plt.plot(df_lp['Index'],df_lp['Change'],type="bar",color="green")
-    plt.plot(df_ln['Index'],df_ln['Change'],type="bar",color="red")
+    plt.plot(df_lp['Index'],df_lp['Change'],color="green")
+    plt.plot(df_ln['Index'],df_ln['Change'],color="red")
     st.pyplot(fig=plt)
 #     plt.show()
 #     nsei =yf.Ticker('NSEI')
