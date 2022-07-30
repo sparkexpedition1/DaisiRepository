@@ -119,6 +119,7 @@ def uiExample():
     fig = plt.figure(figsize = (10, 5))
     plt.bar(df_lp['Index'],df_lp['Change'],color="green",width = 0.4)
     plt.bar(df_ln['Index'],df_ln['Change'],color="red",width = 0.4)
+    plt.tick_params(top='off', bottom='off', left='off', right='off')
 #     plt.plot(df_lp['Index'],df_lp['Change'],color="green")
 #     plt.plot(df_ln['Index'],df_ln['Change'],color="red")
     st.pyplot(fig=plt)
