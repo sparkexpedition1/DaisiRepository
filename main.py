@@ -108,10 +108,21 @@ def uiExample():
     #fig = plt.figure()
     l1 = [["Nifty",nifty_change],["Sensex", sensex_change], ["SNP",snp_change], ["Russel",russel_change], ["DOW Jones",dj_change]]
     #l2 = ['Nifty', 'Sensex', 'S&P',"Russel",'DOW Jones']
-    df_chart = pd.DataFrame(l1,columns=["Index","Change"])
-    st.dataframe(data=df_chart)
-                                                                                                           
-#     plt.plot(l2,l1)
+#     df_chart = pd.DataFrame(l1,columns=["Index","Change"])
+#     st.dataframe(data=df_chart)
+    lp =[]
+    ln = []
+    for lst in l1:
+        if lst[1] >= 0 :
+            lp.append(lst)
+        else:
+            ln.append(lst)
+    df_lp  =  pd.DataFrame(lp,columns=["Index","Change"])
+    df_ln  =  pd.DataFrame(ln,columns=["Index","Change"])
+    
+    plt.plot(df_lp['Index'],df_lp['Change'],type="bar",color="green")
+    plt.plot(df_ln['Index'],df_ln['Change'],type="bar",color="red")
+    st.pyplot(fig=plt)
 #     plt.show()
 #     nsei =yf.Ticker('NSEI')
 #     st.text(nsei.info)
