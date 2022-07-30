@@ -126,11 +126,12 @@ def uiExample():
         y.append(str(i[2]) + ", " + str(i[1]))
     for i in lp:
         y.append(str(i[2]) + ", " + str(i[1]))
-#     nsei =yf.Ticker('NSEI')
-#     st.text(nsei.info)
-#     df_list = pd.read_html('https://finance.yahoo.com/world-indices/')
-#     majorStockIdx = df_list[0]
-#     st.dataframe(data=majorStockIdx)
+    for i in range(0, len(y)):
+        plt.text(i-0.04,y[i]+0.025,y[i])
+    #plt.tick_params(top='off', bottom='off', left='off', right='off')
+#     plt.plot(df_lp['Index'],df_lp['Change'],color="green")
+#     plt.plot(df_ln['Index'],df_ln['Change'],color="red")
+    st.pyplot(fig=plt)
     st.text("For ratings type Product Rating")
     st.text("For Text Sentiment type Text Sentiment")
     algorithm = st.text_input("Please enter the Algorithm",value="")
