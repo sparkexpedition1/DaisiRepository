@@ -104,7 +104,11 @@ def uiExample():
     dj_cur = dj.info['regularMarketPrice']
     dj_change = (dj_cur - dj.info['previousClose'])/dj.info['previousClose']*100
     st.markdown('DOW Jones :  ' + str(dj_cur) + ' Change: ' + str(dj_change) + '%')
-   
+    
+    fig = plt.figure()
+    l1 = [nifty_change, sensex_change, snp_change, russel_change, dj_change]
+    l2 = ['Nifty', 'Sensex', 'S&P',"Russel",'DOW Jones']
+    fig.plot(l2,l1)
 #     nsei =yf.Ticker('NSEI')
 #     st.text(nsei.info)
 #     df_list = pd.read_html('https://finance.yahoo.com/world-indices/')
