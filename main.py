@@ -106,28 +106,26 @@ def uiExample():
     st.markdown('DOW Jones :  ' + str(dj_cur) + ' Change: ' + str(dj_change) + '%')
     
     fig = plt.figure()
-    l1 = [["Nifty",nifty_change],["Sensex", sensex_change], ["SNP",snp_change], ["Russel",russel_change], ["DOW Jones",dj_change],["sample",-0.25]]
+    l1 = [["Nifty",nifty_change,nifty_cur],["Sensex", sensex_change,sensex_cur], ["SNP",snp_change,snp_cur], ["Russel",russel_change,russel_cur], ["DOW Jones",dj_change,dj_cur],["sample",-0.25,100]]
     lp =[]
     ln = []
     for lst in l1:
         lst[1] = round(lst[1],2)
+        lst[2]= round(lst[2],0)
         if lst[1] >= 0 :
-            lp.append(lst)
+            lp.append([lst[0],lst[1],lst[2]])
         else:
-            ln.append([lst[0],lst[1]*(-1)])
-    df_lp  =  pd.DataFrame(lp,columns=["Index","Change"])
-    df_ln  =  pd.DataFrame(ln,columns=["Index","Change"])
+            ln.append([lst[0],lst[1]*(-1),lst[2]])
+    df_lp  =  pd.DataFrame(lp,columns=["Index","Change","Current"])
+    df_ln  =  pd.DataFrame(ln,columns=["Index","Change","Current"])
     fig = plt.figure(figsize = (10, 5))
     plt.bar(df_lp['Index'],df_lp['Change'],color="green",width = 0.4)
     plt.bar(df_ln['Index'],df_ln['Change'],color="red",width = 0.4)
-    y  = list(df_lp['Change']) + list(df_ln['Change'])
-    for i in range(0, len(y)):
-        plt.text(i,y[i]+0.025,y[i])
-    #plt.tick_params(top='off', bottom='off', left='off', right='off')
-#     plt.plot(df_lp['Index'],df_lp['Change'],color="green")
-#     plt.plot(df_ln['Index'],df_ln['Change'],color="red")
-    st.pyplot(fig=plt)
-#     plt.show()
+    y =[]
+    for i in ln:
+        y.append(str(ln[i][2]) + ", " + str(ln[i][1]))
+    for i in lp:
+        y.append(str(lp[i][2]) + ", " + str(lp[i][1]))
 #     nsei =yf.Ticker('NSEI')
 #     st.text(nsei.info)
 #     df_list = pd.read_html('https://finance.yahoo.com/world-indices/')
