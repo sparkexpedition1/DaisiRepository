@@ -2,7 +2,6 @@ import streamlit as st
 import pydaisi as pyd
 import pandas as pd
 import yfinance as yf
-from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 import matplotlib.pyplot as plt
 
 def GlobalStockTracker():
