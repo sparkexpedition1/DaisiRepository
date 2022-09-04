@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 def GlobalStockTracker():
     st.set_page_config(layout = "wide")
     stock_name = st.sidebar.text_input("Stock", "Apple")
-    st.text("Checking " + stock_name + " across all Global markets ..")
+    st.text("Checking trends across all Global markets ..")
     nifty = yf.Ticker("^NSEI")
     nifty_cur = nifty.info['regularMarketPrice']
     nifty_change = (nifty_cur - nifty.info['previousClose'])/nifty.info['previousClose']*100
