@@ -35,9 +35,10 @@ def GlobalStockTracker():
     #st.markdown('DOW Jones :  ' + str(dj_cur) + ' Change: ' + str(dj_change) + '%')
     
     fig = plt.figure()
-    l1 = [["Nifty",nifty_change,nifty_cur],["Sensex", sensex_change,sensex_cur], ["SNP",snp_change,snp_cur], ["Russel",russel_change,russel_cur], ["DOW Jones",dj_change,dj_cur],["sample",-0.25,100]]
+    l1 = [["Nifty",nifty_change,nifty_cur],["Sensex", sensex_change,sensex_cur], ["SNP",snp_change,snp_cur], ["Russel",russel_change,russel_cur], ["DOW Jones",dj_change,dj_cur]]
     lp =[]
     ln = []
+    
     for lst in l1:
         lst[1] = round(lst[1],2)
         lst[2]= round(lst[2],0)
@@ -45,8 +46,10 @@ def GlobalStockTracker():
             lp.append([lst[0],lst[1],lst[2]])
         else:
             ln.append([lst[0],lst[1]*(-1),lst[2]])
+    
     df_lp  =  pd.DataFrame(lp,columns=["Index","Change","Current"])
     df_ln  =  pd.DataFrame(ln,columns=["Index","Change","Current"])
+    
     fig = plt.figure(figsize = (10, 5))
     plt.bar(df_lp['Index'],df_lp['Change'],color="green",width = 0.4)
     plt.bar(df_ln['Index'],df_ln['Change'],color="red",width = 0.4)
@@ -59,21 +62,9 @@ def GlobalStockTracker():
     for i in range(0, len(y)):
         plt.text(i-0.04,z[i]+0.025,y[i])
     
-    #plt.tick_params(top='off', bottom='off', left='off', right='off')
-    #plt.plot(df_lp['Index'],df_lp['Change'],color="green")
-    #plt.plot(df_ln['Index'],df_ln['Change'],color="red")
-    
+     
     st.pyplot(fig=plt)
 
-    #st.text("For ratings type Product Rating")
-    #st.text("For Text Sentiment type Text Sentiment")
-    #algorithm = st.text_input("Please enter the Algorithm",value="")
-    #if algorithm == "Product Rating":
-    #    execution()
-    #elif algorithm == 'Text Sentiment':
-    #    textSentiment()
-    #     else:
-    #         st.text("No such Algorithm defined in this daisi")
-        
+       
 if __name__ == "__main__":
     GlobalStockTracker()
