@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 
 def GlobalStockTracker():
     st.set_page_config(layout = "wide")
-    stock_name = st.sidebar.text_input("Stock", "Apple")
+    stock_name = st.sidebar.text_input("Stock", "Trends")
     st.text("Checking trends across all Global markets ..")
     nifty = yf.Ticker("^NSEI")
     nifty_cur = nifty.info['regularMarketPrice']
